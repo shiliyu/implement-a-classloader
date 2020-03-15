@@ -32,10 +32,7 @@ public class MyClassLoader extends ClassLoader {
         try {
             data = loadClassData(name);
         } catch (IOException e) {
-        // catch (ClassNotFoundException e)
-        // catch (ReflectiveOperationException e)
-        // above exceptions are not working, why??
-            throw new RuntimeException(e);
+            throw new ClassNotFoundException(name + " NOT FOUND\n" + e);
         }
 
         return this.defineClass(name, data, 0, data.length);
